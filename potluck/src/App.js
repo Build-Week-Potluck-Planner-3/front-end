@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Dashboard/Home';
 import Register from './components/Register/Register';
-import Calander from './components/Calendar/Calendar';
+import Calendar from './components/Calendar/Calendar';
 import Login from './components/Login/Login';
 import PotluckForm from './components/Potlucks/PotluckForm';
 import EditEvent from './components/Potlucks/EditEvent';
