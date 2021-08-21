@@ -22,15 +22,15 @@ function App() {
       <Navigation /> 
       <Switch>
         <PrivateRoute exact path="/Home" component={Home}/>
-        <PrivateRoute exact path="/Calendar" component={Calander}/>
+        <PrivateRoute exact path="/Calendar" component={Calendar}/>
         <Route exact path="/Register" component={Register}/>
         <Route exact path="/" component={Login}/>
-        <PrivateRoute exact path="/CreateEvent" component={CreateEvent}/>
-        <PrivateRoute exact path="/EditEvent/:id" component={EditEvent}/>
-        <PrivateRoute exact path="/Events" component={EventList}/>
-        <PrivateRoute exact path="/Events/:id" component={EventPage}/>
-        <PrivateRoute exact path="/Users" component={Users}/>
-        <PrivateRoute exact path="/Users/:id" component={UserPage}/>
+        <PrivateRoute exact path="/potluckForm" component={potluckForm}/>
+        <PrivateRoute exact path="/events/edit/:id" component={EditEvent}/>
+        <PrivateRoute exact path="/events" component={EventList}/>
+        <PrivateRoute exact path="/events/:id" component={EventPage}/>
+        <PrivateRoute exact path="/users" component={Users}/>
+        <PrivateRoute exact path="/users/:id" component={UserPage}/>
       </Switch>
     </div>
   );
