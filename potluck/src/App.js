@@ -4,7 +4,7 @@ import Home from './components/Dashboard/Home';
 import Register from './components/Register/Register';
 import Calander from './components/Calendar/Calendar';
 import Login from './components/Login/Login';
-import CreateEvent from './components/Potlucks/CreateEvent';
+import PotluckForm from './components/Potlucks/PotluckForm';
 import EditEvent from './components/Potlucks/EditEvent';
 import EventList from './components/Potlucks/EventList';
 import EventPage from './components/Potlucks/EventPage';
@@ -25,7 +25,7 @@ function App() {
         <PrivateRoute exact path="/Calendar" component={Calendar}/>
         <Route exact path="/Register" component={Register}/>
         <Route exact path="/" component={Login}/>
-        <PrivateRoute exact path="/potluckForm" component={potluckForm}/>
+        <PrivateRoute exact path="/potluckForm" component={PotluckForm}/>
         <PrivateRoute exact path="/events/edit/:id" component={EditEvent}/>
         <PrivateRoute exact path="/events" component={EventList}/>
         <PrivateRoute exact path="/events/:id" component={EventPage}/>
