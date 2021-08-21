@@ -1,4 +1,3 @@
-import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Dashboard/Home';
