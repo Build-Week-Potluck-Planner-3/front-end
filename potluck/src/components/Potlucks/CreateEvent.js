@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CreateEvent() {
+function PotluckForm() {
     return (
         <div>
             <h1> Create Event + Food Item Wish List (Organizer) </h1>
