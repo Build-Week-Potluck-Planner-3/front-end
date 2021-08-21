@@ -8,4 +8,4 @@ function PotluckForm() {
     )
 }
 
-export default CreateEvent
+export default PotluckForm
