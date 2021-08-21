@@ -14,6 +14,9 @@ import UserPage from './components/Users/UserPage';
 import Navigation from './components/Navigation/Navigation';
 
 
+// these were created in help to keep things organized 
+// unit 2 will now have a place to start building these forms / styles 
+
 function App() {
   return (
     <div>
