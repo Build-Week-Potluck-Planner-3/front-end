@@ -14,6 +14,7 @@ const potluckValues = {
 
 function PotluckForm() {
     const [ potluckForm, setPotluckForm ] = useState(potluckValues)
+    const [ error, setError ] = useState('')
     // const { push } = useHistory()
 
     const potluckSubmit = (event) => {
@@ -21,6 +22,9 @@ function PotluckForm() {
         // axios post 
         // useHistory push to direct user to event:id with their just created event
         console.log(potluckForm)
+        if(potluckForm.eventName === '' || potluckForm.location === '' || potluckForm.description === '') {
+               setError('Please fill out entire form.')
+           }
     }
 
     const handleChange = (event) => {
@@ -31,9 +35,9 @@ function PotluckForm() {
     }
 
     return (
-        <div>
+        <div className="eventPage">
             {/* <h1> Create Event + Food Item Wish List (Organizer) </h1> */}
-            <div> 
+            <div className="eventForm"> 
                 <form onSubmit={potluckSubmit}>
                     <label> Event Name: 
                         <input 
@@ -92,6 +96,7 @@ function PotluckForm() {
                     <button type="submit"> Submit </button>
                 </form>
             </div>
+            <p className="error"> {error} </p>
         </div>
     )
 }
