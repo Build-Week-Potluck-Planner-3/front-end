@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
-import axios from 'axios';
+// import { useHistory } from 'react-router';
+// import axios from 'axios';
 
 const potluckValues = {
     eventName: "",
@@ -14,7 +14,7 @@ const potluckValues = {
 
 function PotluckForm() {
     const [ potluckForm, setPotluckForm ] = useState(potluckValues)
-    const { push } = useHistory()
+    // const { push } = useHistory()
 
     const potluckSubmit = (event) => {
         event.preventDefault()
