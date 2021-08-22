@@ -29,6 +29,7 @@ function Login() {
         })
         .catch(error => {
             console.log(error);
+            // setError('There was a problem logging you in.') <-- this will be displayed when there is an error with the fetch 
         })
 
         if (credentials.username === "" || credentials.password === '') {

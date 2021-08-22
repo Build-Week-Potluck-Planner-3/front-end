@@ -33,7 +33,7 @@ function Register() {
             })
             .catch(error => {
               console.log(error);
-              setError('There was a problem while creating your account.')
+              // setError('There was a problem while creating your account.') <-- when the backend is set up, this will display when the fetch fails 
             })
 
             if (credentials.username === "" || credentials.password === '' || credentials.firstName === '' || credentials.lastName === '') {
