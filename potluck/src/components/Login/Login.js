@@ -3,12 +3,13 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 
 const initialLoginValues= {
-    username: "username",
-    password: "password",
+    username: "",
+    password: "",
 }
 
 function Login() {
     const [ credentials, setCredentials ] = useState(initialLoginValues);
+    const [ error, setError ] = useState('')
     const { push } = useHistory();
 
     const changeHandler = (event) => {
@@ -22,13 +23,17 @@ function Login() {
         event.preventDefault();
 
         axios.post("#", credentials)
-            .then(response => {
-              localStorage.setItem('token', response.data.payload);
-              push('/home')
-            })
-            .catch(error => {
-              console.log(error);
-            })
+        .then(response => {
+            localStorage.setItem('token', response.data.payload);
+            push('/home')
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+        if (credentials.username === "" || credentials.password === '') {
+            setError('Username and password required.')
+        }
       }
 
     return (
@@ -55,8 +60,10 @@ function Login() {
                             onChange = {changeHandler}
                         />
                     </label>
+                    <button type="submit"> Login </button>
                 </form>
             </div>
+            <p className="error"> {error} </p>
         </div>
     )
 }
