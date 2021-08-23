@@ -3,8 +3,8 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 
 const initialLoginValues= {
-    username: "username",
-    password: "password",
+    username: "",
+    password: "",
 }
 
 function Login() {
@@ -40,6 +40,7 @@ function Login() {
                         <input
                             id = "username"
                             name = "username"
+                            placeholder = "Username"
                             value = {credentials.username}
                             type = "text"
                             onChange = {changeHandler}
@@ -50,6 +51,7 @@ function Login() {
                         <input 
                             id = "password"
                             name = "password"
+                            placeholder = "Password"
                             value = {credentials.password}
                             type = "password"
                             onChange = {changeHandler}
