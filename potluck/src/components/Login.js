@@ -97,6 +97,7 @@ function Login() {
                             onChange = {changeHandler}
                         />
                     </label>
+                    <button>Log in</button>
                 </form>
                 <button onClick={login} disabled={disabled}>Login</button>
             </div>

@@ -9,10 +9,6 @@ import EventList from './components/Potlucks/EventList';
 import EventPage from './components/Potlucks/EventPage';
 import Navigation from './components/Navigation';
 
-
-// these were created in help to keep things organized 
-// unit 2 will now have a place to start building these forms / styles 
-
 function App() {
   return (
     <div>
