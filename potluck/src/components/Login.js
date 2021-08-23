@@ -55,6 +55,7 @@ function Login() {
                             onChange = {changeHandler}
                         />
                     </label>
+                    <button>Log in</button>
                 </form>
             </div>
         </div>
