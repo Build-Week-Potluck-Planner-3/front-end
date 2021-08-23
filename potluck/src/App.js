@@ -1,16 +1,13 @@
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
-import Home from './components/Dashboard/Home';
-import Register from './components/Register/Register';
-import Calendar from './components/Calendar/Calendar';
-import Login from './components/Login/Login';
+import Home from './components/Home';
+import Register from './components/Register';
+import Login from './components/Login';
 import PotluckForm from './components/Potlucks/PotluckForm';
 import EditEvent from './components/Potlucks/EditEvent';
 import EventList from './components/Potlucks/EventList';
 import EventPage from './components/Potlucks/EventPage';
-import Users from './components/Users/Users';
-import UserPage from './components/Users/UserPage';
-import Navigation from './components/Navigation/Navigation';
+import Navigation from './components/Navigation';
 
 
 // these were created in help to keep things organized 
@@ -22,15 +19,12 @@ function App() {
       <Navigation /> 
       <Switch>
         <PrivateRoute exact path="/Home" component={Home}/>
-        <PrivateRoute exact path="/Calendar" component={Calendar}/>
         <Route exact path="/Register" component={Register}/>
         <Route exact path="/" component={Login}/>
         <PrivateRoute exact path="/potluckForm" component={PotluckForm}/>
         <PrivateRoute exact path="/events/edit/:id" component={EditEvent}/>
         <PrivateRoute exact path="/events" component={EventList}/>
         <PrivateRoute exact path="/events/:id" component={EventPage}/>
-        <PrivateRoute exact path="/users" component={Users}/>
-        <PrivateRoute exact path="/users/:id" component={UserPage}/>
       </Switch>
     </div>
   );
