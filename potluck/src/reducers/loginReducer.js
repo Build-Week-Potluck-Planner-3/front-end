@@ -1,4 +1,4 @@
-//Waiting on API to for further implementation
+//Waiting on API for further implementation
 
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL } from "../actions/loginActions";
 
