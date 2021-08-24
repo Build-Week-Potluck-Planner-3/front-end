@@ -1,11 +1,38 @@
 import React from 'react'
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
+import {
+
+    Link
+} from "react-router-dom";
+
 
 function Navigation() {
     return (
+
         <div>
-            <h1> Navbar </h1>
+
+            <Navbar bg="dark" variant={"dark"} expand="lg">
+                <Container>
+                    <Navbar.Brand href="#home">Potlucksplanner</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link as={Link} to={"/Home"}>Home</Nav.Link>
+                            <Nav.Link as={Link} to={"/Register"}>Register</Nav.Link>
+                            <Nav.Link as={Link} to={"/"}>Login</Nav.Link>
+                            <NavDropdown title="Potluck" id="basic-nav-dropdown">
+                                <NavDropdown.Item as={Link} to={"/potluckForm"}>PotluckForm</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to={"/events/edit/:id"}>Edit</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to={"/events"}>List</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to={"/events/:id"}>Page</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </div>
-    )
+
+    );
 }
 
 export default Navigation

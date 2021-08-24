@@ -8,11 +8,12 @@ import EditEvent from './components/Potlucks/EditEvent';
 import PotluckList from './components/Potlucks/PotluckList';
 import Potluck from './components/Potlucks/Potluck';
 import Navigation from './components/Navigation';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div>
-      <Navigation /> 
+      <Navigation />
       <Switch>
         <PrivateRoute exact path = "/Home" component = {Home}/>
         <Route exact path = "/Register" component = {Register}/>
