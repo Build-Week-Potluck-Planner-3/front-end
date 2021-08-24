@@ -5,27 +5,23 @@ import Register from './components/Register';
 import Login from './components/Login';
 import PotluckForm from './components/Potlucks/PotluckForm';
 import EditEvent from './components/Potlucks/EditEvent';
-import EventList from './components/Potlucks/EventList';
-import EventPage from './components/Potlucks/EventPage';
+import PotluckList from './components/Potlucks/PotluckList';
+import Potluck from './components/Potlucks/Potluck';
 import Navigation from './components/Navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-// these were created in help to keep things organized 
-// unit 2 will now have a place to start building these forms / styles 
 
 function App() {
   return (
     <div>
       <Navigation />
       <Switch>
-        <PrivateRoute exact path="/Home" component={Home} />
-        <Route exact path="/Register" component={Register} />
-        <Route exact path="/" component={Login} />
-        <PrivateRoute exact path="/potluckForm" component={PotluckForm} />
-        <PrivateRoute exact path="/events/edit/:id" component={EditEvent} />
-        <PrivateRoute exact path="/events" component={EventList} />
-        <PrivateRoute exact path="/events/:id" component={EventPage} />
+        <PrivateRoute exact path = "/Home" component = {Home}/>
+        <Route exact path = "/Register" component = {Register}/>
+        <Route exact path = "/" component = {Login}/>
+        <PrivateRoute exact path = "/addPotluck" component = {PotluckForm}/>
+        <PrivateRoute exact path = "/potlucks/edit/:id" component = {EditEvent}/>
+        <PrivateRoute exact path = "/potlucks" component = {PotluckList}/>
+        <PrivateRoute exact path = "/potlucks/:id" component = {Potluck}/>
       </Switch>
     </div>
   );

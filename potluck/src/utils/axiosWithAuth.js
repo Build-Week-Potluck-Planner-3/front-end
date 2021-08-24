@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: "#"
+        baseURL: "#" //placeholder for backend
     })
 }
 
