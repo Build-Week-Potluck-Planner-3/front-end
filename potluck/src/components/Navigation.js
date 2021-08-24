@@ -1,16 +1,10 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
-import {
-
-    Link
-} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 function Navigation() {
     return (
-
         <div>
-
             <Navbar bg="dark" variant={"dark"} expand="lg">
                 <Container>
                     <Navbar.Brand href="#home">Potlucksplanner</Navbar.Brand>
@@ -22,9 +16,11 @@ function Navigation() {
                             <Nav.Link as={Link} to={"/"}>Login</Nav.Link>
                             <NavDropdown title="Potluck" id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to={"/potluckForm"}>PotluckForm</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to={"/events/edit/:id"}>Edit</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to={"/events"}>List</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to={"/events/:id"}>Page</NavDropdown.Item>
+                                {/* Link to edit potluck will be moved to the Potluck component once it's set up*/}
+                                <NavDropdown.Item as={Link} to={"/potlucks/edit/:id"}>Edit</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to={"/potlucks"}>List</NavDropdown.Item>
+                                {/* Link to Potluck will be moved to the PotluckList component once it's set up*/}
+                                <NavDropdown.Item as={Link} to={"/potlucks/:id"}>More Info</NavDropdown.Item> 
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
