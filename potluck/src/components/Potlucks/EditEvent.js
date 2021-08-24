@@ -28,7 +28,7 @@ const EditEvent = (props) => {
 		event.preventDefault();
 		axios.put(`#`, potluck) //filler for endpoint
 			.then(response => {
-				push(`/movies/${id}`);
+				push(`/potlucks/${id}`);
 				props.setPotlucks(response.data);
 			})
 			.catch(error => {
@@ -92,7 +92,7 @@ const EditEvent = (props) => {
                             value = {location}
                             onChange = {handleChange}
                             name = "location" 
-                            type = "time" 
+                            type = "text" 
                             />
                     </div>
 

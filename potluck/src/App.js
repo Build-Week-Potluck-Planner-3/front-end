@@ -16,7 +16,7 @@ function App() {
       <Navigation />
       <Switch>
         {/* changed PrivateRoute to Route just so I could see the Honme component while I work on it */}
-        <Route exact path = "/Home" component = {Home}/>
+        <Route exact path = "/home" component = {Home}/>
         <Route exact path = "/Register" component = {Register}/>
         <Route exact path = "/" component = {Login}/>
         <PrivateRoute exact path = "/addPotluck" component = {PotluckForm}/>
