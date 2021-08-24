@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
-import axiosWithAuth from '../utils/axiosWithAuth.js';
+// import axiosWithAuth from '../utils/axiosWithAuth.js';
 
 const EditEvent = (props) => {
 	const { push } = useHistory();
