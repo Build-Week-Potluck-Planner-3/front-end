@@ -6,8 +6,9 @@ import * as yup from 'yup';
 import schema from '../validation/loginSchema'
 
 const initialLoginValues= {
-    username: "",
-    password: "",
+    username: "Lambda",
+    password: "School",
+    //Static values for quicker testing on server
 }
 
 const initialErrors = {
@@ -46,7 +47,9 @@ function Login() {
             .catch(error => {
               console.log(error);
             })
+        //Temporary until endpoints are completed
         setCredentials(initialLoginValues);
+        push('/home')
       }
 
     const validate = (name, value) => {

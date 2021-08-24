@@ -7,12 +7,12 @@ function Navigation() {
         <div>
             <Navbar bg="dark" variant={"dark"} expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">Potlucksplanner</Navbar.Brand>
+                    <Navbar.Brand href="/home">Potlucksplanner</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to={"/Home"}>Home</Nav.Link>
-                            <Nav.Link as={Link} to={"/Register"}>Register</Nav.Link>
+                            <Nav.Link as={Link} to={"/home"}>Home</Nav.Link>
+                            <Nav.Link as={Link} to={"/register"}>Register</Nav.Link>
                             <Nav.Link as={Link} to={"/"}>Login</Nav.Link>
                             <NavDropdown title="Potluck" id="basic-nav-dropdown">
                                 <NavDropdown.Item as={Link} to={"/potluckForm"}>PotluckForm</NavDropdown.Item>
