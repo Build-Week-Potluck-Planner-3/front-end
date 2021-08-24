@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { fetchPotLuck } from '../../actions/potluckActions';
+import Potluck from './Potluck';
 
 function PotluckList(props) {
     const { potlucks, loading } = props;
