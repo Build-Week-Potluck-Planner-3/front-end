@@ -1,7 +1,8 @@
 import React from 'react'
 
-function PotluckForm() {
-    const { values, update, submit } = props
+ //modify potluck form to use local state instead of props
+function PotluckForm(props) {
+    const { values, update, submit } = props;
 
     const onChange = evt => {
       const name = evt.target.name;
@@ -20,11 +21,11 @@ function PotluckForm() {
                 <form className='form container' onSubmit={onSubmit}>
                 <div className='form-group inputs'>
                     {/* Text Inputs */}
-                    <label>Event Name
+                    <label>Title
                     <input 
                         type="text"
-                        name="eventName"
-                        value={values.eventName}
+                        name="title"
+                        value={values.title}
                         placeholder="Event Name"
                         maxLength="60"
                         onChange={onChange}
@@ -66,7 +67,7 @@ function PotluckForm() {
 
 
                     <div className='submit'>
-                    <button>submit</button>
+                    <button>Add Potluck</button>
                     </div>
                 </div>
                 </form>

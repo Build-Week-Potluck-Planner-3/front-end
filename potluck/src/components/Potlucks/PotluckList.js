@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { fetchPotLuck } from '../../actions/potluckActions';
 
-function EventList(props) {
+function PotluckList(props) {
     const { potlucks, loading } = props;
 
     useEffect(() => {
@@ -15,7 +15,8 @@ function EventList(props) {
 
     return (
         <div>
-            <h1> Event List (Guest Attending) </h1>
+            {/* map through potlucks and pass objects as props to new component (Potluck) */}
+            {/* Potluck component will be a stateless, presentational component */}
         </div>
     )
 }
@@ -27,4 +28,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchPotLuck })(EventList);
+export default connect(mapStateToProps, { fetchPotLuck })(PotluckList);

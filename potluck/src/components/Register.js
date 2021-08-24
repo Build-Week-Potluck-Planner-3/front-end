@@ -3,7 +3,7 @@ import React from 'react'
 function Register() {
     return (
         <div>
-            <h1> Register </h1>
+            {/* To be filled out with logic from Login.js once endpoints are ready */}
         </div>
     )
 }
