@@ -40,7 +40,7 @@ const potluckReducer = (state = initialPotLuckState, action) => {
             return ({
                 ...state,
                 potlucks: [...state.potlucks, {
-                        id: state.potlucks.length() + 1,
+                        id: state.potlucks.length + 1,
                         title: action.payload.title,
                         date: action.payload.date,
                         time: action.payload.time,
