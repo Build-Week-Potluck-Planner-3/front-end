@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import axios from 'axios';
 
 import * as yup from 'yup';
@@ -72,36 +74,43 @@ function Login() {
 
     return (
         <div className = "loginPage">
-            <h1>Login to start scheduling your potluck!</h1>
-            <div className='errors'>
-                <div>{errors.username}</div>
-                <div>{errors.password}</div>
-            </div>
-            <div className = "loginForm">
-                <form onSubmit = {login}>
-                    <label>Username:
-                        <input
-                            id = "username"
-                            name = "username"
-                            placeholder = "Username"
-                            value = {credentials.username}
-                            type = "text"
-                            onChange = {changeHandler}
-                        />
-                    </label>
+            <div className='login-img'>
+                <h1 className='login-h1'>Login To Get Started</h1>
+            
 
-                    <label>Password:
-                        <input 
-                            id = "password"
-                            name = "password"
-                            placeholder = "Password"
-                            value = {credentials.password}
-                            type = "password"
-                            onChange = {changeHandler}
-                        />
-                    </label>
-                    <button disabled = {disabled}>Log in</button>
-                </form>
+                <div className='errors'>
+                    <div>{errors.username}</div>
+                    <div>{errors.password}</div>
+                </div>
+                <div className = "login-form-container">
+                    <form onSubmit = {login} className='login-form'>
+                        <label>Username:
+                            <input
+                                id = "username"
+                                name = "username"
+                                placeholder = "Username"
+                                value = {credentials.username}
+                                type = "text"
+                                onChange = {changeHandler}
+                            />
+                        </label>
+
+                        <label>Password:
+                            <input 
+                                id = "password"
+                                name = "password"
+                                placeholder = "Password"
+                                value = {credentials.password}
+                                type = "password"
+                                onChange = {changeHandler}
+                            />
+                        </label>
+                        <Button disabled = {disabled} color='secondary'>Log in</Button>
+                    </form>
+                </div>
+            </div>
+            <div className='login-footer'>
+                <p>Haven't Signed Up? <Link to='/register'>Register Here!</Link></p>
             </div>
         </div>
     )
