@@ -4,8 +4,8 @@ const initialPotLuckState = {
     potlucks: [{
             id: 1,
             title: 'Startup Event',
-            date: null,
-            time: null,
+            date: "",
+            time: "",
             location: 'Lambda School',
             description: 'Buildweek Potluck!',
         }],
