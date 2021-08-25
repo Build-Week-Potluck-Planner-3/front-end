@@ -19,15 +19,11 @@ const initialErrors = {
 const initialDisabled = true;
 
 function Login() {
-
-    //state
     const [ credentials, setCredentials ] = useState(initialLoginValues);
     const [ disabled, setDisabled] = useState(initialDisabled);
     const [ errors, setErrors ] = useState(initialErrors);
     const { push } = useHistory();
 
-
-    //helper functions
     const changeHandler = (event) => {
         validate(event.target.name, event.target.value)
         setCredentials({
@@ -39,10 +35,11 @@ function Login() {
     const login = (event) => {
         event.preventDefault();
 
-        axios.post("#", credentials)
+        axios.post("https://potluckbw-backend.herokuapp.com/api/auth/register", credentials)
             .then(response => {
-              localStorage.setItem('token', response.data.payload);
-              push('/home')
+                console.log(response);
+                localStorage.setItem('token', response.data.payload);
+                push('/home')
             })
             .catch(error => {
               console.log(error);
@@ -59,16 +56,11 @@ function Login() {
           .catch( err => setErrors({...errors, [name]:err.errors[0]}))
       }
 
-      //side effects 
-
       useEffect(() => {
         schema.isValid(credentials).then(valid => {
           setDisabled(!valid)
         })
       }, [credentials])
-    
-
-
 
     return (
         <div className = "loginPage">
