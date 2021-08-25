@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import * as yup from 'yup';
 import schema from '../validation/loginSchema'
@@ -35,7 +36,7 @@ function Login() {
     const login = (event) => {
         event.preventDefault();
 
-        axios.post("https://potluckbw-backend.herokuapp.com/api/auth/register", credentials)
+        axios.post("https://potluckbw-backend.herokuapp.com/api/auth/login", credentials)
             .then(response => {
                 console.log(response);
                 localStorage.setItem('token', response.data.payload);
@@ -52,8 +53,8 @@ function Login() {
     const validate = (name, value) => {
         yup.reach(schema, name)
           .validate(value)
-          .then( () => setErrors({...errors,[name]: ""}))
-          .catch( err => setErrors({...errors, [name]:err.errors[0]}))
+          .then(() => setErrors({...errors,[name]: ""}))
+          .catch(err => setErrors({...errors, [name]:err.errors[0]}))
       }
 
       useEffect(() => {
@@ -94,6 +95,9 @@ function Login() {
                     </label>
                     <button disabled = {disabled}>Log in</button>
                 </form>
+                <div>
+                <Link to={`/register`} className = "editButton">Don't have an account? Register!</Link>
+            </div>
             </div>
         </div>
     )
