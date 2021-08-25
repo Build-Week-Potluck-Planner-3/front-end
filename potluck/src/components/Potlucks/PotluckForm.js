@@ -17,7 +17,7 @@ function PotluckForm() {
     const onChange = evt => {
       const name = evt.target.name;
       const value = evt.target.value;
-      update(name, value);
+      setFormValues({...formValues, [inputName]: inputValue})
     }
   
     const onSubmit = evt => {
@@ -33,7 +33,7 @@ function PotluckForm() {
 
       // NEED AN API TO POST TO
 
-      
+
       axios.post('fakeapi.com', newPotluck)
         .then(res => {
           console.log(res);
