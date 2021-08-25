@@ -1,5 +1,24 @@
 import React from 'react'
 import axios from '../axios'
+import styled from 'styled-components'
+
+const Button = styled.button`
+  background: #F05454;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: #DDDDDD;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+`
+
+const Input = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: #DDDDDD;
+  background: #F05454;
+  border: none;
+  border-radius: 3px;
+`;
 
 const initialFormValues = {
     name: '',
@@ -51,7 +70,7 @@ function PotluckForm() {
                 <div className='form-group inputs'>
                     {/* Text Inputs */}
                     <label>Event Name
-                    <input 
+                    <Input 
                         type="text"
                         name="name"
                         value={values.name}
@@ -62,7 +81,7 @@ function PotluckForm() {
                     </label>
 
                     <label>Date
-                    <input 
+                    <Input 
                         type="date"
                         name="date"
                         value={values.date}
@@ -73,7 +92,7 @@ function PotluckForm() {
                     </label>
 
                     <label>Time
-                    <input 
+                    <Input 
                         type="time"
                         name="time"
                         value={values.time}
@@ -84,7 +103,7 @@ function PotluckForm() {
                     </label>
 
                     <label>Location
-                    <input 
+                    <Input 
                         type="text"
                         name="location"
                         value={values.location}
@@ -95,7 +114,7 @@ function PotluckForm() {
                     </label>
 
                     <label>Dishes
-                    <input 
+                    <Input 
                         type="text"
                         name="location"
                         value={values.dishes}
@@ -107,7 +126,7 @@ function PotluckForm() {
 
 
                     <div className='submit'>
-                    <button>Add Potluck</button>
+                    <Button>Add Potluck</Button>
                     </div>
                 </div>
                 </form>
