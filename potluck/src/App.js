@@ -19,6 +19,7 @@ function App() {
         <Route exact path = "/home" component = {Home}/>
         <Route exact path = "/register" component = {Register}/>
         <Route exact path = "/" component = {Login}/>
+        <Route exact path = "/login" component = {Login}/>
         <Route exact path = "/addPotluck" component = {PotluckForm}/>
         <Route exact path = "/potlucks/edit/:id" component = {EditEvent}/>
         <Route exact path = "/potlucks" component = {PotluckList}/>

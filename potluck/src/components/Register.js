@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import schema from '../validation/loginSchema'
 
@@ -70,7 +70,7 @@ function Register() {
                 <div>{errors.username}</div>
                 <div>{errors.password}</div>
             </div>
-            
+
             <div className = "registerForm">
                 <form onSubmit = {register}>
                     <label>Username:
@@ -96,6 +96,10 @@ function Register() {
                     </label>
                     <button disabled = {disabled}>Register</button>
                 </form>
+
+                <div>
+                    <Link to={`/login`} className = "loginButton">Already have an account? Login!</Link>
+                </div>
             </div>
         </div>
     )
