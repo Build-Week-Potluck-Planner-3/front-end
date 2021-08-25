@@ -104,7 +104,7 @@ function PotluckForm(props) {
                   onChange={onChange}
                   />
               </label> */}
-
+ 
               <button>Add Potluck</button>
               <Link to = {`/potlucks/`}><input type = "button" className = "btn btn-default" value = "Cancel"/></Link>
           </div>
