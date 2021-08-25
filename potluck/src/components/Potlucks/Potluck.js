@@ -1,11 +1,23 @@
-import React from 'react'
-import { Link, useParams, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import axios from 'axios';
 
 function Potluck(props) {
-    const { potluck } = props;
+    const { potlucks } = props;
     const { id } = useParams();
-    const { push } = useHistory();
-    
+
+    const potluck = potlucks[id - 1];
+    // useEffect(()=>{
+    //     axios.get('#')
+    //         .then(response => {
+    //             setPotluck(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }, [id]);
+
     return (
         <div className='potluck container'>
             {/* Presentational component to display prop data */}
@@ -26,4 +38,10 @@ function Potluck(props) {
     )
 }
 
-export default Potluck;
+const mapStateToProps = state => {
+    return {
+        potlucks: state.potluckReducer.potlucks,
+    }
+}
+
+export default connect(mapStateToProps, {})(Potluck);

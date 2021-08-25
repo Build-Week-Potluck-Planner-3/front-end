@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { fetchPotLuck } from '../../actions/potluckActions';
-import Potluck from './Potluck';
+import PotluckListItem from './PotluckListItem';
 
 function PotluckList(props) {
     const { potlucks, loading } = props;
@@ -16,7 +16,7 @@ function PotluckList(props) {
 
     return (
         <div>
-            {potlucks.map(potluck => <Potluck key = {potluck.id} potluck = {potluck} />)}
+            {potlucks.map(potluck => <PotluckListItem key = {potluck.id} potluck = {potluck} />)}
         </div>
     )
 }
