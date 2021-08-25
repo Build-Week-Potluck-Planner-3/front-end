@@ -1,7 +1,13 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_POTLUCK, SET_ERROR } from "../actions/potluckActions";
 
 const initialPotLuckState = {
-    potlucks: [],
+    potlucks: [{
+            title: 'Startup Event',
+            date: null,
+            time: null,
+            location: 'Lambda School',
+            description: 'Buildweek Potluck!',
+        }],
     loading: false,
     error: '',
 }

@@ -15,7 +15,7 @@ function App() {
     <div>
       <Navigation />
       <Switch>
-        {/* changed PrivateRoute to Route just so I could see the Honme component while I work on it */}
+        {/* changed PrivateRoute to Route just so I could see the Home component while I work on it */}
         <Route exact path = "/home" component = {Home}/>
         <Route exact path = "/Register" component = {Register}/>
         <Route exact path = "/" component = {Login}/>

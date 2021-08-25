@@ -15,12 +15,8 @@ function Navigation() {
                             <Nav.Link as={Link} to={"/register"}>Register</Nav.Link>
                             <Nav.Link as={Link} to={"/"}>Login</Nav.Link>
                             <NavDropdown title="Potluck" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to={"/potluckForm"}>PotluckForm</NavDropdown.Item>
-                                {/* Link to edit potluck will be moved to the Potluck component once it's set up*/}
-                                <NavDropdown.Item as={Link} to={"/potlucks/edit/:id"}>Edit</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to={"/addPotluck"}>Add Potluck</NavDropdown.Item>
                                 <NavDropdown.Item as={Link} to={"/potlucks"}>List</NavDropdown.Item>
-                                {/* Link to Potluck will be moved to the PotluckList component once it's set up*/}
-                                <NavDropdown.Item as={Link} to={"/potlucks/:id"}>More Info</NavDropdown.Item> 
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

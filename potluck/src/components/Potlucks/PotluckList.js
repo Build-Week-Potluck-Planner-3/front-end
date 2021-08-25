@@ -16,22 +16,15 @@ function PotluckList(props) {
 
     return (
         <div>
-            {/* map through potlucks and pass objects as props to new component (Potluck) */}
-            {potlucks.map(props, idx => {
-                return (
-                    <Potluck key={idx} props={props} />
-                )
-            })
-            }
-            {/* Potluck component will be a stateless, presentational component */}
+            {potlucks.map(potluck => <Potluck key = {potluck.id} potluck = {potluck} />)}
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        potlucks: state.potlucks,
-        loading: state.loading,
+        potlucks: state.potluckReducer.potlucks,
+        loading: state.potluckReducer.loading,
     }
 }
 

@@ -111,7 +111,7 @@ const EditEvent = (props) => {
                         type="submit" 
                         className = "button button-info" 
                         value = "Save"/>
-                    <Link to = { `/potlucks/1`}><input type = "button" className = "btn btn-default" value = "Cancel"/></Link>
+                    <Link to = {`/potlucks/1`}><input type = "button" className = "btn btn-default" value = "Cancel"/></Link>
                 </div>
             </form>
         </div>
