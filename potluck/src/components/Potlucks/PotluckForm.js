@@ -13,7 +13,8 @@ const initialState = {
 }
 
 
-function PotluckForm() {
+function PotluckForm(props) {
+  const { addPotluck } = props;
     const [newPotluck, setPotluck] = useState(initialState);
     const { push } = useHistory();
 
@@ -51,7 +52,7 @@ function PotluckForm() {
                   type = "text"
                   name = "title"
                   value={newPotluck.title}
-                  placeholder = "Event Name"
+                  placeholder = "Event Title"
                   onChange = {onChange}
                 />
               </label>
@@ -79,7 +80,7 @@ function PotluckForm() {
                   type = "text"
                   name = "location"
                   value = {newPotluck.location}
-                  onChange={onChange}
+                  onChange = {onChange}
                 />
               </label>
 
