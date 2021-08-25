@@ -1,118 +1,113 @@
-import React from 'react'
-import axios from '../axios'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
+import { addPotluck } from '../../actions/potluckActions';
+import axios from 'axios'
 
-const initialFormValues = {
-    name: '',
+const initialState = {
+    title: '',
     date: '',
     time: '',
     location: '',
-    dishes: '',
-  }
+    description: '',
+}
 
- //modify potluck form to use local state instead of props
+
 function PotluckForm() {
+    const [newPotluck, setPotluck] = useState(initialState);
+    const { push } = useHistory();
 
-    const [formValues, setFormValues] = useState(initialFormValues)
-
-    const onChange = evt => {
-      const name = evt.target.name;
-      const value = evt.target.value;
-      update(name, value);
+    const onChange = event => {
+      setPotluck({
+        ...newPotluck,
+        [event.target.name]: event.target.value, 
+      })
     }
   
-    const onSubmit = evt => {
-      evt.preventDefault();
-      
-      const newPotluck = {
-        name: formValues.name.trim(),
-        date: formValues.date.trim(),
-        time: formValues.time.trim(),
-        location: formValues.location.trim(),
-        dishes: formValues.split(",")
-      }
+    const submit = event => {
+      event.preventDefault();
 
-      // NEED AN API TO POST TO
+      axios.post("#", newPotluck)
+            .then(response => {
+              localStorage.setItem('token', response.data.payload);
+              push('/home')
+            })
+            .catch(error => {
+              console.log(error);
+            })
 
-      
-      axios.post('fakeapi.com', newPotluck)
-        .then(res => {
-          console.log(res);
-          setFormValues(initialFormValues)
-        })
-        .catch(err => {
-          console.error(err);
-        })  
+        //Temporary until endpoints are completed
+        addPotluck(newPotluck);
+        push('/potlucks')
     }
   
-    
     return (
-        <div>
-                <form className='form container' onSubmit={onSubmit}>
-                <div className='form-group inputs'>
-                    {/* Text Inputs */}
-                    <label>Event Name
-                    <input 
-                        type="text"
-                        name="name"
-                        value={values.name}
-                        placeholder="Event Name"
-                        maxLength="60"
-                        onChange={onChange}
-                    />
-                    </label>
+      <div>
+        <form className = 'potluckForm' onSubmit = {submit}>
+          <div className='potluckInputs'>
+              {/* Text Inputs */}
+              <label>Title
+                <input 
+                  type = "text"
+                  name = "title"
+                  value={newPotluck.title}
+                  placeholder = "Event Name"
+                  onChange = {onChange}
+                />
+              </label>
 
-                    <label>Date
-                    <input 
-                        type="date"
-                        name="date"
-                        value={values.date}
-                        placeholder="date placeholder"
-                        maxLength="10"
-                        onChange={onChange}
-                        />
-                    </label>
+              <label>Date
+              <input 
+                  type = "date"
+                  name = "date"
+                  value = {newPotluck.date}
+                  onChange = {onChange}
+                  />
+              </label>
 
-                    <label>Time
-                    <input 
-                        type="time"
-                        name="time"
-                        value={values.time}
-                        placeholder="time placeholder"
-                        maxLength="10"
-                        onChange={onChange}
-                        />
-                    </label>
+              <label>Time
+                <input 
+                  type = "time"
+                  name = "time"
+                  value={newPotluck.time}
+                  onChange={onChange}
+                />
+              </label>
 
-                    <label>Location
-                    <input 
-                        type="text"
-                        name="location"
-                        value={values.location}
-                        placeholder="Event Location"
-                        maxLength="30"
-                        onChange={onChange}
-                        />
-                    </label>
+              <label>Location
+                <input 
+                  type = "text"
+                  name = "location"
+                  value = {newPotluck.location}
+                  onChange={onChange}
+                />
+              </label>
 
-                    <label>Dishes
-                    <input 
-                        type="text"
-                        name="location"
-                        value={values.dishes}
-                        placeholder="Event Location"
-                        maxLength="30"
-                        onChange={onChange}
-                        />
-                    </label>
+              <div className = "formDiv">
+                <label>Description</label>
+                <textarea 
+                    value = {newPotluck.description} 
+                    onChange = {onChange} 
+                    name = "description" 
+                ></textarea>
+              </div>
 
+              {/* <label>Dishes
+                <input 
+                  type="text"
+                  name="location"
+                  value={values.dishes}
+                  placeholder="Event Location"
+                  maxLength="30"
+                  onChange={onChange}
+                  />
+              </label> */}
 
-                    <div className='submit'>
-                    <button>Add Potluck</button>
-                    </div>
-                </div>
-                </form>
-        </div>
+              <button>Add Potluck</button>
+          </div>
+        </form>
+      </div>
     )
 }
 
-export default PotluckForm
+export default connect(null, {addPotluck})(PotluckForm);
