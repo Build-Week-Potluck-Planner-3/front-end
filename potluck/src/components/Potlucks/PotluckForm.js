@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { addPotluck } from '../../actions/potluckActions';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 const initialState = {
     title: '',
@@ -105,6 +106,7 @@ function PotluckForm(props) {
               </label> */}
 
               <button>Add Potluck</button>
+              <Link to = {`/potlucks/`}><input type = "button" className = "btn btn-default" value = "Cancel"/></Link>
           </div>
         </form>
       </div>

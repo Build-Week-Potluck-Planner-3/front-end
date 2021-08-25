@@ -96,8 +96,8 @@ function Login() {
                     <button disabled = {disabled}>Log in</button>
                 </form>
                 <div>
-                <Link to={`/register`} className = "editButton">Don't have an account? Register!</Link>
-            </div>
+                    <Link to={`/register`} className = "registerButton">Don't have an account? Register!</Link>
+                </div>
             </div>
         </div>
     )
