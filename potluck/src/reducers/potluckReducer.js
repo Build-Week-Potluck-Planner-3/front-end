@@ -1,7 +1,14 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_POTLUCK, SET_ERROR } from "../actions/potluckActions";
 
 const initialPotLuckState = {
-    potlucks: [],
+    potlucks: [{
+            id: 1,
+            title: 'Startup Event',
+            date: "",
+            time: "",
+            location: 'Lambda School',
+            description: 'Buildweek Potluck!',
+        }],
     loading: false,
     error: '',
 }
@@ -29,11 +36,11 @@ const potluckReducer = (state = initialPotLuckState, action) => {
                 loading: false
             });
 
-        case ADD_POTLUCK: //To be reviewed once PotLuck form is finalized
+        case ADD_POTLUCK:
             return ({
                 ...state,
                 potlucks: [...state.potlucks, {
-                        id: state.potlucks.length(),
+                        id: state.potlucks.length + 1,
                         title: action.payload.title,
                         date: action.payload.date,
                         time: action.payload.time,

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { fetchPotLuck } from '../../actions/potluckActions';
+import PotluckListItem from './PotluckListItem';
+import { Link } from 'react-router-dom';
 
 function PotluckList(props) {
     const { potlucks, loading } = props;
@@ -15,16 +17,18 @@ function PotluckList(props) {
 
     return (
         <div>
-            {/* map through potlucks and pass objects as props to new component (Potluck) */}
-            {/* Potluck component will be a stateless, presentational component */}
+            <Link to = {`/addPotluck`} className = "addPotluck">
+                <input type = "button" className = "addPotluckButton" value="Add Potluck"/>
+            </Link>
+            {potlucks.map(potluck => <PotluckListItem key = {potluck.id} potluck = {potluck} />)}
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        potlucks: state.potlucks,
-        loading: state.loading,
+        potlucks: state.potluckReducer.potlucks,
+        loading: state.potluckReducer.loading,
     }
 }
 

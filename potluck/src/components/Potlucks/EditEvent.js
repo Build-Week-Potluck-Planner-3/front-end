@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import axios from 'axios';
+// import axiosWithAuth from '../utils/axiosWithAuth.js';
 
 const EditEvent = (props) => {
+    const { potlucks } = props;
 	const { push } = useHistory();
 	const { id } = useParams();
 
@@ -27,12 +30,14 @@ const EditEvent = (props) => {
 		event.preventDefault();
 		axios.put(`#`, potluck) //filler for endpoint
 			.then(response => {
-				push(`/movies/${id}`);
+				push(`/potlucks/${id}`);
 				props.setPotlucks(response.data);
 			})
 			.catch(error => {
 				console.log(error);
 			})
+        potlucks[id - 1] = potluck;
+        push(`/potlucks/${id}`);
 	}
 
 	useEffect(() => {
@@ -43,6 +48,7 @@ const EditEvent = (props) => {
 			.catch(error => {
 				console.log(error);
 			})
+        setPotluck(potlucks[id - 1]);
 	}, [])
 	
 	const { title, date, time, location, description } = potluck;
@@ -91,7 +97,7 @@ const EditEvent = (props) => {
                             value = {location}
                             onChange = {handleChange}
                             name = "location" 
-                            type = "time" 
+                            type = "text" 
                             />
                     </div>
 
@@ -110,11 +116,17 @@ const EditEvent = (props) => {
                         type="submit" 
                         className = "button button-info" 
                         value = "Save"/>
-                    <Link to = { `/potlucks/1`}><input type = "button" className = "btn btn-default" value = "Cancel"/></Link>
+                    <Link to = {`/potlucks/1`}><input type = "button" className = "btn btn-default" value = "Cancel"/></Link>
                 </div>
             </form>
         </div>
     );
 }
 
-export default EditEvent;
+const mapStateToProps = state => {
+    return {
+        potlucks: state.potluckReducer.potlucks,
+    }
+}
+
+export default connect(mapStateToProps, {})(EditEvent);
