@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function Home() {
     return (
@@ -10,18 +11,22 @@ function Home() {
             </div>
 
             <div className='home-card-container'>
-                <div className='home-card'>
-                    <Link to='/addPotluck'>
-                        <img className='home-card-img' src='https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1296&q=60' alt = "homePageImage1"></img>
-                        <p>Create A New Potluck</p>
-                    </Link>
-
+                <div className='home-img-card'>
+                   
                 </div>
-                <div className='home-card'>
-                    <Link to='/potlucks'>
-                        <img className='home-card-img' src='https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1650&q=80' alt = "homePageImage2"></img>
-                        <p>View Existing Potlucks</p>
-                    </Link>
+
+                <div className='home-info-card'>
+                    <h3>Create A New Potluck</h3>
+                    <Link to='/addPotluck'>Get Started</Link>    
+                </div>
+
+                <div className='home-info-card'>
+                    <h3>View Existing Potlucks</h3>
+                    <Link to='/potlucks'>Get Started</Link>
+                </div>
+
+                <div className='home-img-card'>
+
                 </div>
             </div>
         </div>
@@ -29,3 +34,4 @@ function Home() {
 }
 
 export default Home
+
