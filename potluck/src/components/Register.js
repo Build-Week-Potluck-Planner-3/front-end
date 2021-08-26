@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import schema from '../validation/loginSchema';
 import { fetchUsers, setUsers } from '../actions/registerActions';
 import { connect } from 'react-redux';
@@ -42,6 +42,7 @@ function Register(props) {
         event.preventDefault();
         axios.post("https://potluckbw-backend.herokuapp.com/api/auth/register", credentials)
             .then(response => {
+                console.log(response)
                 props.setUsers(credentials);
                 push('/login')
             })
@@ -101,7 +102,7 @@ function Register(props) {
                             onChange = {changeHandler}
                         />
                     </label>
-                    <Button disabled = {disabled}>Register</Button>
+                    <button disabled = {disabled}>Register</button>
                 </form>
 
                 <div className = 'register-footer'>

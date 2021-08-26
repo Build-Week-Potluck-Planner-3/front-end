@@ -38,16 +38,12 @@ function Login() {
 
         axios.post("https://potluckbw-backend.herokuapp.com/api/auth/login", credentials)
             .then(response => {
-                console.log(response);
-                localStorage.setItem('token', response.data.payload);
+                localStorage.setItem('token', response.data.message);
                 push('/home')
             })
             .catch(error => {
               console.log(error);
             })
-        //Temporary until endpoints are completed
-        setCredentials(initialLoginValues);
-        push('/home')
       }
 
     const validate = (name, value) => {
@@ -96,7 +92,7 @@ function Login() {
                                 onChange = {changeHandler}
                             />
                         </label>
-                        <Button disabled = {disabled} color='secondary'>Log in</Button>
+                        <button disabled = {disabled} color='secondary'>Log in</button>
                     </form>
                     <div className='login-footer'>
                       <p>Haven't Signed Up? <Link to='/register'>Register Here!</Link></p>
