@@ -18,10 +18,14 @@ function PotluckList(props) {
 
     return (
         <div>
-            <Link to = {`/addPotluck`} className = "addPotluck">
-                <input type = "button" className = "addPotluckButton" value="Add Potluck"/>
-            </Link>
-            {potlucks.map(potluck => <PotluckListItem key = {potluck.id} potluck = {potluck} />)}
+            {potlucks.map(potluck => <PotluckListItem key={potluck.id} potluck={potluck} />)}
+            <div className="buttonAdd">
+                <Link to={`/addPotluck`} className="addPotluck">
+                    <input type="button" className="addPotluckButton" value="Add Potluck" />
+                </Link>
+            </div>
+
+
         </div>
     )
 }
