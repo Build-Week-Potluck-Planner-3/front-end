@@ -62,6 +62,23 @@ code {
 
 .home-heading {
   text-align: center;
+}
+
+/* PotluckListItem Component */
+
+.Card-style{
+  font-size:1rem ;
+  text-align: center;
+}
+
+.Card-size{
+  margin: 1rem 15rem 0 15rem;
+}
+
+.Title-size{
+  font-size:3rem;
+}
+
   margin: 25px;
   font-weight: bolder;
   text-shadow: 
@@ -129,8 +146,3 @@ code {
   background-color: #222831;
   color: #DDDDDD;
 }
-
-
-
-
-
