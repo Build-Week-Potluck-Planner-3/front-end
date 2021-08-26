@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 function Potluck(props) {
     const { potlucks } = props;
