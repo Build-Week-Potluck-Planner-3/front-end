@@ -67,8 +67,23 @@ code {
   text-shadow: 
     0.025em 0.025em 0 #DDDDDD,
     0.05em 0.05em 0 #30475E;
+
 }
 
+/* PotluckListItem Component */
+
+.Card-style{
+  font-size:1rem ;
+  text-align: center;
+}
+
+.Card-size{
+  margin: 1rem 15rem 0 15rem;
+}
+
+.Title-size{
+  font-size:3rem;
+}
 
 /* Login Component */
 
@@ -233,8 +248,3 @@ code {
 .errors {
   color: rgb(168, 3, 3);
 }
-
-
-
-
-

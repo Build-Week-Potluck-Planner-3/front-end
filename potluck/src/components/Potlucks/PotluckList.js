@@ -4,6 +4,7 @@ import { fetchPotLuck } from '../../actions/potluckActions';
 import PotluckListItem from './PotluckListItem';
 import { Link } from 'react-router-dom';
 
+
 function PotluckList(props) {
     const { potlucks, loading } = props;
 

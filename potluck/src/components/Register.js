@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import { Button } from 'react-bootstrap';
 import schema from '../validation/loginSchema';
+import { fetchUsers, setUsers } from '../actions/registerActions';
+import { connect } from 'react-redux';
 
 const initialRegisterValues= {
-    id: 1,
-    username: "Lambda",
-    password: "School",
-    //Static values for quicker testing on server
+    user_id: 0,
+    username: "",
+    password: "",
 }
 
 const initialErrors = {
@@ -20,7 +21,8 @@ const initialErrors = {
 
 const initialDisabled = true;
 
-function Register() {
+function Register(props) {
+    const { users } = props;
     const [ credentials, setCredentials ] = useState(initialRegisterValues);
     const [ disabled, setDisabled] = useState(initialDisabled);
     const [ errors, setErrors ] = useState(initialErrors);
@@ -31,24 +33,21 @@ function Register() {
         setCredentials({
             ...credentials,
             [event.target.name]: event.target.value, 
+            user_id: users.length + 1,
         })
     }
 
+    //Post new user credentials to API
     const register = (event) => {
         event.preventDefault();
-
         axios.post("https://potluckbw-backend.herokuapp.com/api/auth/register", credentials)
             .then(response => {
-                console.log(response);
-                localStorage.setItem('token', response.data.payload);
+                props.setUsers(credentials);
                 push('/login')
             })
             .catch(error => {
               console.log(error);
             })
-        //Temporary until endpoints are completed
-        // setCredentials(initialLoginValues);
-        // push('/login')
       }
 
     const validate = (name, value) => {
@@ -58,11 +57,17 @@ function Register() {
           .catch(err => setErrors({...errors, [name]:err.errors[0]}))
       }
 
-      useEffect(() => {
+    //Verify user credential inputs
+    useEffect(() => {
         schema.isValid(credentials).then(valid => {
-          setDisabled(!valid)
+            setDisabled(!valid)
         })
-      }, [credentials])
+    }, [credentials])
+
+    //Get users list from API
+    useEffect(() => {
+        props.fetchUsers();
+    }, [])
 
     return (
         <div className = "registerPage">
@@ -108,4 +113,10 @@ function Register() {
     )
 }
 
-export default Register
+const mapStateToProps = state => {
+    return {
+        users: state.registerReducer.users,
+    }
+}
+
+export default connect(mapStateToProps, {fetchUsers, setUsers})(Register);
