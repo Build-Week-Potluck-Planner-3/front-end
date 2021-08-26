@@ -62,6 +62,12 @@ code {
 
 .home-heading {
   text-align: center;
+  margin: 25px;
+  font-weight: bolder;
+  text-shadow: 
+    0.025em 0.025em 0 #DDDDDD,
+    0.05em 0.05em 0 #30475E;
+
 }
 
 /* PotluckListItem Component */
@@ -78,14 +84,6 @@ code {
 .Title-size{
   font-size:3rem;
 }
-
-  margin: 25px;
-  font-weight: bolder;
-  text-shadow: 
-    0.025em 0.025em 0 #DDDDDD,
-    0.05em 0.05em 0 #30475E;
-}
-
 
 /* Login Component */
 
