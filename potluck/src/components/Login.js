@@ -3,7 +3,6 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import * as yup from 'yup';
 import schema from '../validation/loginSchema'
