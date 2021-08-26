@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
-import schema from '../validation/loginSchema'
+import { Button } from 'react-bootstrap';
+import schema from '../validation/loginSchema';
 
 const initialRegisterValues= {
     id: 1,
@@ -65,14 +66,15 @@ function Register() {
 
     return (
         <div className = "registerPage">
-            <h1>Register to start scheduling your potluck!</h1>
+            <div className='register-img'>
+            <h1 className='register-h1'>Register To Plan Your First Potluck!</h1>
             <div className='errors'>
                 <div>{errors.username}</div>
                 <div>{errors.password}</div>
             </div>
 
-            <div className = "registerForm">
-                <form onSubmit = {register}>
+            <div className = "register-form-container">
+                <form onSubmit={register} className='register-form'>
                     <label>Username:
                         <input
                             id = "username"
@@ -94,12 +96,13 @@ function Register() {
                             onChange = {changeHandler}
                         />
                     </label>
-                    <button disabled = {disabled}>Register</button>
+                    <Button disabled = {disabled}>Register</Button>
                 </form>
 
-                <div>
+                <div className = 'register-footer'>
                     <Link to={`/login`} className = "loginButton">Already have an account? Login!</Link>
                 </div>
+            </div>
             </div>
         </div>
     )
