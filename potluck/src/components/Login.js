@@ -8,8 +8,8 @@ import * as yup from 'yup';
 import schema from '../validation/loginSchema'
 
 const initialLoginValues= {
-    username: "",
-    password: "",
+    username: "Lambda",
+    password: "School",
 }
 
 const initialErrors = {

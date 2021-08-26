@@ -1,11 +1,11 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_POTLUCK, SET_ERROR } from "../actions/potluckActions";
+import { FETCH_START, FETCH_SUCCESSES, FETCH_FAIL, ADD_POTLUCK, SET_ERROR } from "../actions/potluckActions";
 
 const initialPotLuckState = {
     potlucks: [{
             id: 1,
             title: 'Startup Event',
-            date: "",
-            time: "",
+            date: "8/27/2021",
+            time: "3:00 PM",
             location: 'Lambda School',
             description: 'Buildweek Potluck!',
         }],
@@ -22,7 +22,7 @@ const potluckReducer = (state = initialPotLuckState, action) => {
                 error: ''
             });
 
-        case FETCH_SUCCESS:
+        case FETCH_SUCCESSES:
             return ({
                 ...state,
                 potlucks: action.payload,

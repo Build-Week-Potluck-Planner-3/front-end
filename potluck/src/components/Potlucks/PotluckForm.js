@@ -50,8 +50,7 @@ function PotluckForm(props) {
 
       axios.post("#", newPotluck)
             .then(response => {
-              localStorage.setItem('token', response.data.payload);
-              push('/home')
+              push('/potlucks')
             })
             .catch(error => {
               console.log(error);
