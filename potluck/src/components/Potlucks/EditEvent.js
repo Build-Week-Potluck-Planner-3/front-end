@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Card, } from 'react-bootstrap';
 
 import axios from 'axios';
-// import axiosWithAuth from '../utils/axiosWithAuth.js';
 
 const EditEvent = (props) => {
     const { potlucks } = props;

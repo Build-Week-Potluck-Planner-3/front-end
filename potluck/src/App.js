@@ -21,9 +21,9 @@ function App() {
         <Route exact path = "/" component = {Login}/>
         <Route exact path = "/login" component = {Login}/>
         <PrivateRoute exact path = "/addPotluck" component = {PotluckForm}/>
-        <Route exact path = "/potlucks/edit/:id" component = {EditEvent}/>
-        <Route exact path = "/potlucks" component = {PotluckList}/>
-        <Route exact path = "/potlucks/:id" component = {Potluck}/>
+        <PrivateRoute exact path = "/potlucks/edit/:id" component = {EditEvent}/>
+        <PrivateRoute exact path = "/potlucks" component = {PotluckList}/>
+        <PrivateRoute exact path = "/potlucks/:id" component = {Potluck}/>
       </Switch>
     </div>
   );

@@ -11,14 +11,14 @@ const PotluckListItem = (props) => {
       <Card.Header style={{ color: "grey" }}>Event </Card.Header>
       <Card.Body style={{ background: "#30475E" }}>
         <Card.Title className="Title-size"><p style={{ color: "white" }}> {potluck.title}</p></Card.Title>
-        <Card.Text>
+        <div>
           <p style={{ color: "white" }}>Date: {potluck.date}</p>
           <p style={{ color: "white" }}>Time: {potluck.time}</p>
           <p style={{ color: "white" }}>Location: {potluck.location}</p>
           <Link to={`/potlucks/${potluck.id}`} className="view">
             <input type="button" className="viewButton" value="View Details" style={{ background: "#222831", color: "white" }} />
           </Link>
-        </Card.Text>
+        </div>
 
       </Card.Body>
 

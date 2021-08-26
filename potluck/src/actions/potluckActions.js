@@ -5,7 +5,7 @@ export const fetchPotLuck = () => {
         dispatch(fetchStart());
         axios.get('#') //placeholder for backend
             .then(response => {
-                dispatch(fetchSuccess(response.data));
+                dispatch(fetchSuccesses(response.data));
             })
             .catch(error => {
                 dispatch(fetchFail(error));
@@ -18,9 +18,9 @@ export const fetchStart = () => {
     return({type: FETCH_START});
 }
 
-export const FETCH_SUCCESS = "FETCH_SUCCESS";
-export const fetchSuccess = (potlucks) => {
-    return({type: FETCH_SUCCESS, payload: potlucks});
+export const FETCH_SUCCESSES = "FETCH_SUCCESSES";
+export const fetchSuccesses = (potlucks) => {
+    return({type: FETCH_SUCCESSES, payload: potlucks});
 }
 
 export const FETCH_FAIL = "FETCH_FAIL";
