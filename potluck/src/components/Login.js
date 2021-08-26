@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import * as yup from 'yup';
 import schema from '../validation/loginSchema'
@@ -21,15 +22,11 @@ const initialErrors = {
 const initialDisabled = true;
 
 function Login() {
-
-    //state
     const [ credentials, setCredentials ] = useState(initialLoginValues);
     const [ disabled, setDisabled] = useState(initialDisabled);
     const [ errors, setErrors ] = useState(initialErrors);
     const { push } = useHistory();
 
-
-    //helper functions
     const changeHandler = (event) => {
         validate(event.target.name, event.target.value)
         setCredentials({
@@ -41,10 +38,11 @@ function Login() {
     const login = (event) => {
         event.preventDefault();
 
-        axios.post("#", credentials)
+        axios.post("https://potluckbw-backend.herokuapp.com/api/auth/login", credentials)
             .then(response => {
-              localStorage.setItem('token', response.data.payload);
-              push('/home')
+                console.log(response);
+                localStorage.setItem('token', response.data.payload);
+                push('/home')
             })
             .catch(error => {
               console.log(error);
@@ -57,20 +55,15 @@ function Login() {
     const validate = (name, value) => {
         yup.reach(schema, name)
           .validate(value)
-          .then( () => setErrors({...errors,[name]: ""}))
-          .catch( err => setErrors({...errors, [name]:err.errors[0]}))
+          .then(() => setErrors({...errors,[name]: ""}))
+          .catch(err => setErrors({...errors, [name]:err.errors[0]}))
       }
-
-      //side effects 
 
       useEffect(() => {
         schema.isValid(credentials).then(valid => {
           setDisabled(!valid)
         })
       }, [credentials])
-    
-
-
 
     return (
         <div className = "loginPage">
@@ -107,10 +100,10 @@ function Login() {
                         </label>
                         <Button disabled = {disabled} color='secondary'>Log in</Button>
                     </form>
+                    <div className='login-footer'>
+                      <p>Haven't Signed Up? <Link to='/register'>Register Here!</Link></p>
+                    </div>
                 </div>
-            </div>
-            <div className='login-footer'>
-                <p>Haven't Signed Up? <Link to='/register'>Register Here!</Link></p>
             </div>
         </div>
     )
