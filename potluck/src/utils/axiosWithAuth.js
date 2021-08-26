@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: "https://potluckbw-backend.herokuapp.com/api/" //placeholder for backend
+        baseURL: "https://potluckbw-backend.herokuapp.com/api/"
     })
 }
 

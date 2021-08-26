@@ -36,7 +36,7 @@ const potluckReducer = (state = initialPotLuckState, action) => {
                 loading: false
             });
 
-        case ADD_POTLUCK: //To be reviewed once PotLuck form is finalized
+        case ADD_POTLUCK:
             return ({
                 ...state,
                 potlucks: [...state.potlucks, {

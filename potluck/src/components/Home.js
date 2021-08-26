@@ -5,7 +5,10 @@ function Home() {
     return (
         <div>
             {/* Central hub for webpage and navigation*/}
-            <h1 className='home-heading'>Welcome to your Potluck Planner</h1>
+            <div className='header-img'>
+                <h1 className='home-heading'>Welcome to your Potluck Planner</h1>
+            </div>
+
             <div className='home-card-container'>
                 <div className='home-card'>
                     <Link to='/addPotluck'>
