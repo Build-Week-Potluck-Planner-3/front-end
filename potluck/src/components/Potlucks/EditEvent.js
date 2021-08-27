@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -40,16 +40,16 @@ const EditEvent = (props) => {
         push(`/potlucks/${id}`);
     }
 
-    useEffect(() => {
-        axios.get(`#`) //filler for endpoint
-            .then(response => {
-                setPotluck(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        setPotluck(potlucks[id - 1]);
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`#`) //filler for endpoint
+    //         .then(response => {
+    //             setPotluck(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    //     setPotluck(potlucks[id - 1]);
+    // }, [])
 
     const { title, date, time, location, description } = potluck;
 

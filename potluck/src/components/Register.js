@@ -22,7 +22,7 @@ const initialErrors = {
 const initialDisabled = true;
 
 function Register(props) {
-    const { users } = props;
+    const { users, fetchUsers } = props;
     const [ credentials, setCredentials ] = useState(initialRegisterValues);
     const [ disabled, setDisabled] = useState(initialDisabled);
     const [ errors, setErrors ] = useState(initialErrors);
@@ -67,8 +67,8 @@ function Register(props) {
 
     //Get users list from API
     useEffect(() => {
-        props.fetchUsers();
-    }, [])
+        fetchUsers();
+    }, [fetchUsers])
 
     return (
         <div className = "registerPage">

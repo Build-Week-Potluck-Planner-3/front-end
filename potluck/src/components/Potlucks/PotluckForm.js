@@ -19,10 +19,16 @@ const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
   color: #DDDDDD;
-  background: #F05454;
+  background: #F01454;
   border: none;
   border-radius: 3px;
-`;
+`
+
+const PotluckFormDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const initialState = {
     title: '',
@@ -35,36 +41,36 @@ const initialState = {
 
 function PotluckForm(props) {
   const { addPotluck } = props;
-    const [newPotluck, setPotluck] = useState(initialState);
-    const { push } = useHistory();
+  const [newPotluck, setPotluck] = useState(initialState);
+  const { push } = useHistory();
 
-    const onChange = event => {
-      setPotluck({
-        ...newPotluck,
-        [event.target.name]: event.target.value, 
-      })
-    }
+  const onChange = event => {
+    setPotluck({
+      ...newPotluck,
+      [event.target.name]: event.target.value, 
+    })
+  }
   
-    const submit = event => {
-      event.preventDefault();
+  const submit = event => {
+    event.preventDefault();
 
-      axios.post("#", newPotluck)
-            .then(response => {
-              push('/potlucks')
-            })
-            .catch(error => {
-              console.log(error);
-            })
+    axios.post("#", newPotluck)
+          .then(response => {
+            push('/potlucks')
+          })
+          .catch(error => {
+            console.log(error);
+          })
 
-        //Temporary until endpoints are completed
-        addPotluck(newPotluck);
-        push('/potlucks')
+    //Temporary until endpoints are completed
+    addPotluck(newPotluck);
+    push('/potlucks')
     }
   
     return (
       <div>
         <form className = 'potluckForm' onSubmit = {submit}>
-          <div className='potluckInputs'>
+            <PotluckFormDiv>
               {/* Text Inputs */}
               <label>Title
                 <Input 
@@ -122,10 +128,11 @@ function PotluckForm(props) {
                   onChange={onChange}
                   />
               </label> */}
- 
+            <div>
               <Button>Add Potluck</Button>
               <Link to = {`/potlucks/`}><input type = "button" className = "btn btn-default" value = "Cancel"/></Link>
-          </div>
+              </div>
+          </PotluckFormDiv>
         </form>
       </div>
     )
