@@ -304,3 +304,33 @@ code {
   color: white;
   
 }
+
+/* Potluck */
+
+.potluckContainer{
+  text-align: center;
+  color: whitesmoke;
+  margin-top: 12rem;
+  border: 15px solid #222831;
+  padding: 30px;
+}
+
+.potluckPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #30475E;
+  background-position: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  background-color: #30475E;
+}
+.editButton{
+  text-decoration: none;
+  border: 2px solid #222831;
+  color: white;
+  background-color: #222831;
+}
+
